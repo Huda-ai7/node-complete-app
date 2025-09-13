@@ -1,4 +1,6 @@
 # Ignore files
 *.env
+cert.pem
+key.pem
 # Ignore folders
 node_modules/

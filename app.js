@@ -16,8 +16,8 @@ const session = require("express-session");
 const mongodbStore = require("connect-mongodb-session")(session);
 const csrf = require("csurf");
 // make the website https
-const privateKey = fs.readFileSync("key.pem");
-const certificate = fs.readFileSync("cert.pem");
+// const privateKey = fs.readFileSync("key.pem");
+// const certificate = fs.readFileSync("cert.pem");
 
 const flash = require("connect-flash");
 const multer = require("multer");
