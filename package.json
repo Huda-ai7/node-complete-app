@@ -1,0 +1,40 @@
+{
+  "name": "basics-node",
+  "version": "1.0.0",
+  "description": "complete node js gudie",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "start-server": "node app.js",
+    "start:dev": "nodemon app.js"
+  },
+  "author": "Huda",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "compression": "^1.8.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^5.0.0",
+    "csurf": "^1.11.0",
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-handlebars": "3.0",
+    "express-session": "^1.18.2",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "mongodb": "^6.18.0",
+    "mongoose": "^8.17.2",
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "node-modules": "^1.0.1",
+    "nodemailer": "^7.0.5",
+    "pdfkit": "^0.17.2",
+    "stripe": "^18.5.0"
+  }
+}

@@ -1,0 +1,19 @@
+<%- include('../includes/head.ejs') %>
+<body>
+  <%- include('../includes/body.ejs') %>
+  <main style="text-align: center">
+    <h1><%=prod.title%></h1>
+    <div>
+      <img src="/<%=prod.imageUrl%>" width="300" alt="<%=prod.title%>" />
+    </div>
+    <h4><%=prod.price%></h4>
+    <p><%=prod.description%></p>
+    <% if(isAuthenticated){ %>
+    <form action="/cart" method="post">
+      <input type="hidden" name="_csrf" value="<%= csrfToken%>" />
+      <button type="submit" class="btn btn-primary">Add to Cart</button>
+      <input type="hidden" name="productId" value="<%= prod._id %>" />
+    </form>
+    <% } %>
+  </main>
+</body>

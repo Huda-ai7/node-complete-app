@@ -1,0 +1,49 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+    <%- include('../includes/body.ejs') %>
+    <main>
+      <%if (prou.length > 0) {%>
+      <div class="grid">
+        <% for (let product of prou) { %>
+        <article class="card-product-item">
+          <header class="card-header">
+            <h1 class="product-title"><%= product.title %></h1>
+          </header>
+          <div class="card-img">
+            <img
+              src="/<%= product.imageUrl %>"
+              alt="<%= product.title %>"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="prodoct-price">$<%= product.price %></h2>
+            <p class="prodoct-desc"><%= product.description %></p>
+          </div>
+          <div class="card-action">
+            <a href="/products/<%= product._id %>" class="btn btn-success">Details</a>
+             <% if(isAuthenticated){ %>
+             <form action="/cart" method="post">
+              <input type="hidden" name="_csrf" value="<%= csrfToken%>" />
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                <input type="hidden" name="productId" value="<%= product._id %>" />
+            </form>
+            <% } %>
+          </div>
+        </article>
+        <% } %>
+      </div>
+     <%- include('../includes/pagination.ejs',{
+        currentPage: currentPage,
+        hasNextPage: hasNextPage,
+        hasPrevPage: hasPrevPage,
+        nextPage: nextPage,
+        prevPage: prevPage,
+        lastPage: lastPage
+      }) 
+      %>
+      <% } else { %>
+      <h1>No product Found !</h1>
+      <% } %>
+    </main>
+  </body>
+</html>

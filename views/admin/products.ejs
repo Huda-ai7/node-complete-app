@@ -1,0 +1,38 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+    <%- include('../includes/body.ejs') %>
+    <main>
+      <%if (prou.length > 0) {%>
+      <div class="grid">
+        <% for (let product of prou) { %>
+        <article class="card-product-item">
+          <header class="card-header">
+            <h1 class="product-title"><%= product.title %></h1>
+          </header>
+          <div class="card-img">
+            <img
+              src="/<%= product.imageUrl %>"
+              alt="<%= product.title %>"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="prodoct-price">$<%= product.price %></h2>
+            <p class="prodoct-desc"><%= product.description %></p>
+          </div>
+          <div class="card-action">
+            <a href="/admin/edit-product/<%= product._id %>?edit=true" class="btn btn-info">Edit</a>
+              <input type="hidden" value="<%=product._id%>" name="productId">
+              <input type="hidden" name="_csrf" value="<%= csrfToken%>" />
+              <button class="btn btn-danger" type="button" onclick="deletePrduct(this)">Delete</button>
+          </div>
+        </article>
+        <% } %>
+      </div>
+      <% } else { %>
+      <h1>No product Found !</h1>
+      <% } %>
+    </main>
+    <script src="/js/admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

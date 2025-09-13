@@ -1,0 +1,28 @@
+<%- include('../includes/head.ejs') %>
+<body>
+  <%- include('../includes/body.ejs') %>
+  <main>
+    <% if ( allOrder.length <= 0){ %>
+    <h1>Nothing there!</h1>
+    <% } else{ %>
+    <ul>
+      <% allOrder.forEach(order => { %>
+      <li>
+        <h1>
+          # <%= order._id %>
+          <span class="fs-3">
+            <a href="/orders/<%= order._id%>" class="text-success">Invoice</a>
+          </span>
+        </h1>
+
+        <ul>
+          <% order.products.forEach(pitem => { %>
+          <li><%= pitem.product.title %> ( <%= pitem.quantity %> ) -</li>
+          <% }); %>
+        </ul>
+      </li>
+      <% }); %>
+    </ul>
+    <% } %>
+  </main>
+</body>
